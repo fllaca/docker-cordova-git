@@ -1,0 +1,8 @@
+sudo: required
+
+services:
+  - docker
+
+script:
+  - docker build -t fllaca/cordova-git .
+  - docker run fllaca/cordova /bin/sh -c "cordova create test && cd test && cordova platform add android && cordova build android"
